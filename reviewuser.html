@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PortofolioKu.app</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="reviewcss.css">
+</head>
+
+<body id="portfoliobody">
+
+<header class="editor-navbar">
+
+    <div class="editor-logo">
+        <div class="logo-icon">💡</div>
+        Portofolio<span>KU</span>
+    </div>
+
+    <div class="editor-title">
+        Buat Portofolio
+    </div>
+
+    <div class="editor-actions">
+        <button class="btn-preview" onclick="previewPortfolio()">
+            👁 Preview
+        </button>
+
+        <button class="btn-publish" onclick="publishPortfolio()">
+            Publish →
+        </button>
+    </div>
+
+</header>
+
+
+<main class="editor-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h3>Portfolio Saya</h3>
+        </div>
+        <div class="progress-box">
+
+            <div class="progress-info">
+                <span>Profil selesai</span>
+                <strong id="progressText">0%</strong>
+            </div>
+
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+
+
+        <nav class="editor-menu">
+
+            <button class="menu-item active" onclick="showSection('profile', this)">
+                <span>👤</span>
+                Profil
+            </button>
+
+            <button class="menu-item" onclick="showSection('education', this)">
+                <span>🎓</span>
+                Pendidikan
+            </button>
+
+            <button class="menu-item" onclick="showSection('experience', this)">
+                <span>💼</span>
+                Pengalaman
+            </button>
+
+            <button class="menu-item" onclick="showSection('project', this)">
+                <span>🚀</span>
+                Project
+            </button>
+
+            <button class="menu-item" onclick="showSection('skill', this)">
+                <span>⚡</span>
+                Skill
+            </button>
+
+            <button class="menu-item" onclick="showSection('contact', this)">
+                <span>🔗</span>
+                Kontak
+            </button>
+
+        </nav>
+
+
+        <div class="template-box">
+
+            <p>Template</p>
+
+           <button type="button" onclick="openTemplateModal()">
+                 🎨 Ganti Template
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= FORM ================= -->
+
+    <section class="editor-content">
+
+
+        <!-- PROFILE -->
+
+        <div class="form-section active-section" id="profile">
+            <div class="section-heading">
+                <span class="section-label">
+                    LANGKAH 01
+                </span>
+                <h1>Profil Kamu</h1>
+                <p>
+                    Informasi dasar yang akan ditampilkan
+                    di bagian utama portfolio.
+                </p>
+            </div>
+
+
+            <div class="form-card">
+                <div class="photo-area">
+                    <div class="profile-photo" id="profilePhotoPreview">
+                        AH
+                    </div>
+                    <div>
+                        <h4>Foto Profil</h4>
+                        <p>Gunakan foto profesional.</p>
+                       <input
+                            type="file"
+                            id="profilePhotoInput"
+                            accept="image/*"
+                            hidden
+                        >
+                        <button
+                            class="upload-btn"
+                            type="button"
+                            onclick="document.getElementById('profilePhotoInput').click()"
+                        >
+                            Upload Foto
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input
+                            type="text"
+                            id="nameInput"
+                            value="Andi Hidayat"
+                            oninput="updatePreview()"
+                        >
+                    </div>
+                    <div class="form-group">
+
+                        <label>Profesi / Headline</label>
+                        <input
+                            type="text"
+                            id="headlineInput"
+                            value="Information System Graduate"
+                            oninput="updatePreview()">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Tentang Saya</label>
+
+                    <textarea
+                        id="aboutInput"
+                        rows="5"
+                        oninput="updatePreview()"
+                    >Information System graduate dengan ketertarikan pada data, administrasi, UI/UX, dan teknologi.</textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Lokasi</label>
+
+                    <input
+                        type="text"
+                        placeholder="Contoh: Bandung, Jawa Barat"
+                    >
+
+                </div>
+
+
+                <button class="save-btn" onclick="saveData()">
+                    Simpan Perubahan
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- EDUCATION -->
+
+        <div class="form-section" id="education">
+            <div class="section-heading">
+                <span class="section-label">
+                    LANGKAH 02
+                </span>
+                <h1>Pendidikan</h1>
+                <p>
+                    Tambahkan pendidikan yang relevan.
+                </p>
+            </div>
+
+
+            <div class="form-card">
+                <div class="form-group">
+                    <label>Institusi</label>
+                    <input
+                        type="text"
+                        id="educationInstitution"
+                         placeholder="Universitas / Sekolah"
+                         oninput="updateEducationPreview()"
+                    >
+                </div>
+
+                <div class="form-group">
+
+                    <label>Jurusan</label>
+
+                    <input
+                        type="text"
+                        id="educationMajor"
+                        placeholder="Contoh: Sistem Informasi"
+                        oninput="updateEducationPreview()"
+                    >
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Tahun Masuk</label>
+
+                         <input
+                        type="text"
+                        id="educationStart"
+                        placeholder="2021"
+                        oninput="updateEducationPreview()"
+                    >
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Tahun Lulus</label>
+                        <input
+                            type="text"
+                            id="educationEnd"
+                            placeholder="2025"
+                            oninput="updateEducationPreview()"
+                        >
+                    </div>
+
+                </div>
+
+                <button class="save-btn">
+                    + Tambah Pendidikan
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- EXPERIENCE -->
+
+        <div class="form-section" id="experience">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    LANGKAH 03
+                </span>
+                <h1>Pengalaman</h1>
+                <p>
+                    Tampilkan pengalaman kerja, magang,
+                    organisasi, atau freelance.
+                </p>
+            </div>
+
+
+            <div class="form-card">
+
+        <div class="form-group">
+
+            <label>Posisi / Jabatan</label>
+
+            <input
+                type="text"
+                id="experiencePosition"
+                placeholder="Contoh: Staff Humas"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Perusahaan / Organisasi</label>
+
+            <input
+                type="text"
+                id="experienceCompany"
+                placeholder="Contoh: PT PLN (Persero)">
+        </div>
+
+        <div class="form-group">
+
+            <label>Deskripsi Pengalaman</label>
+            <textarea
+                id="experienceDescription"
+                rows="6"
+                placeholder="Ceritakan tanggung jawab dan pengalaman kamu..."
+            ></textarea>
+        </div>
+
+                <button class="save-btn">
+                    + Tambah Pengalaman
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROJECT -->
+
+        <div class="form-section" id="project">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    LANGKAH 04
+                </span>
+
+                <h1>Project</h1>
+
+                <p>
+                    Tampilkan project terbaikmu kepada HRD.
+                </p>
+
+            </div>
+
+
+            <div class="form-card">
+
+                <div class="form-group">
+
+                    <label>Nama Project</label>
+                    <input
+                        type="text"
+                        id="projectName"
+                        placeholder="Contoh: Sistem Informasi Akademik"
+                        oninput="updateProjectPreview()">
+                </div>
+
+                <div class="form-group">
+
+                    <label>Tools / Teknologi</label>
+                  <input
+                    type="text"
+                    id="projectTools"
+                    placeholder="Contoh: Figma, Excel, Canva"
+                    oninput="updateProjectPreview()">
+                </div>
+
+                <div class="form-group">
+                    <label>Deskripsi Project</label>
+                    <textarea
+                        id="projectDescription"
+                        rows="5"
+                        placeholder="Ceritakan project kamu..."
+                        oninput="updateProjectPreview()"
+                    ></textarea>
+                </div>
+
+                <button class="save-btn">
+                    + Tambah Project
+                </button>
+            </div>
+        </div>
+
+     <!--------------------------- SKILL ------------------>
+        <div class="form-section" id="skill">
+
+            <div class="section-heading">
+                <span class="section-label">LANGKAH 05</span>
+                <h1>Skill</h1>
+                <p>Tambahkan kemampuan yang ingin kamu tampilkan.</p>
+            </div>
+
+
+            <div class="form-card">
+
+                <div class="skill-input">
+                    <input
+                        type="text"
+                        placeholder="Contoh: Microsoft Excel"
+                        id="skillInput">
+
+                    <button onclick="addSkill()">
+                        Tambah
+                    </button>
+
+                    <button class="menu-item" onclick="showSection('certificate', this)">
+                        <span>🏆</span>
+                         Sertifikat
+                    </button>
+
+                </div>
+
+                <div class="skill-list" id="skillList">
+
+                    <span>Microsoft Excel</span>
+                    <span>Google Sheets</span>
+                    <span>Canva</span>
+
+                </div>
+
+            </div>
+
+        </div>
+<!-- ================= CERTIFICATE ================= -->
+
+<div class="form-section" id="certificate">
+    <!-- CERTIFICATE -->
+
+<div class="form-section" id="certificate">
+    <div class="section-heading">
+        <span class="section-label">LANGKAH 06</span>
+        <h1>Sertifikat</h1>
+        <p>Tambahkan sertifikat, kursus, atau pelatihan yang pernah kamu ikuti.</p>
+    </div>
+
+    <div class="form-card">
+        <div class="form-group">
+            <label>Nama Sertifikat</label>
+            <input
+                type="text"
+                id="certificateName"
+                placeholder="Contoh: Work Smarter With Microsoft Excel">
+
+        </div>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Penerbit / Lembaga</label>
+                <input
+                    type="text"
+                    id="certificateIssuer"
+                    placeholder="Contoh: Coursera">
+            </div>
+
+            <div class="form-group">
+                <label>Tahun</label>
+                <input
+                    type="text"
+                    id="certificateYear"
+                    placeholder="2026">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Link Sertifikat</label>
+            <input
+                type="text"
+                id="certificateLink"
+                placeholder="https://...">
+
+        </div>
+
+        <button
+            type="button"
+            class="save-btn"
+            onclick="addCertificate()" >
+            + Tambah Sertifikat
+        </button>
+        <div
+            class="certificate-list" id="certificateList" >
+        </div>
+    </div>
+
+</div>
+            <!--upload sertikita-->
+        <div class="form-card">
+        <div class="certificate-upload">
+        <div class="certificate-icon">🏆</div>
+        <div class="certificate-upload-info">
+            <h3>Upload Sertifikat</h3>
+            <p>Upload gambar sertifikat yang ingin ditampilkan di portfolio.</p>
+            <input
+                type="file"
+                id="certificateImageInput"
+                accept="image/*"
+                hidden>
+            <button
+                type="button"
+                class="upload-certificate-btn"
+                onclick="document.getElementById('certificateImageInput').click()">
+                📁 Pilih Gambar
+            </button>
+            <span id="certificateFileName" class="certificate-file-name">
+                Belum ada file
+            </span>
+        </div>
+        </div>
+
+        <div class="form-group">
+            <label>Nama Sertifikat</label>
+            <input
+                type="text"
+                id="certificateName"
+                placeholder="Contoh: Work Smarter With Microsoft Excel">
+        </div>
+
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Penerbit / Lembaga</label>
+                <input
+                    type="text"
+                    id="certificateIssuer"
+                    placeholder="Contoh: Coursera">
+
+            </div>
+        
+            <div class="form-group">
+                <label>Tahun</label>
+                <input
+                    type="text"
+                    id="certificateYear"
+                    placeholder="2026">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Link Sertifikat</label>
+            <input
+                type="text"
+                id="certificateLink"
+                placeholder="https://..."
+            >
+            <small class="input-help">
+                Opsional — bisa berupa link verifikasi sertifikat.
+            </small>
+        </div>
+
+        <button
+            class="save-btn"
+            onclick="addCertificate()">
+            + Tambah Sertifikat
+        </button>
+
+
+        <!-- LIST SERTIFIKAT -->
+        <div
+            class="certificate-list" id="certificateList">
+            <div class="certificate-item">
+                <div class="certificate-preview-image">
+                    🏆
+                </div>
+        
+                <div class="certificate-item-info">
+                    <strong>Work Smarter With Microsoft Excel</strong>
+                    <span>Microsoft · 2026</span>
+                </div>
+
+                <button
+                    class="delete-certificate"
+                    onclick="this.parentElement.remove()">
+                    ×
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+                
+
+        <!-- CONTACT -->
+
+        <!-- ================= CONTACT ================= -->
+
+<div class="form-section" id="contact">
+
+    <div class="section-heading">
+
+        <span class="section-label">LANGKAH 07</span>
+
+        <h1>Kontak</h1>
+
+        <p>
+            Tambahkan informasi yang dapat digunakan orang untuk menghubungimu.
+        </p>
+
+    </div>
+
+    <div class="form-card">
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="contactEmail"
+                placeholder="nama@email.com"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>LinkedIn</label>
+
+            <input
+                type="text"
+                id="contactLinkedIn"
+                placeholder="https://linkedin.com/in/username"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+            <label>WhatsApp</label>
+
+            <input
+                type="text"
+                id="contactWhatsApp"
+                placeholder="08xxxxxxxxxx"
+            >
+
+        </div>
+
+
+                <button class="save-btn">
+                    Simpan Kontak
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= LIVE PREVIEW ================= -->
+
+    <aside class="preview-area">
+
+        <div class="preview-header">
+            <span>LIVE PREVIEW</span>
+            <span class="online">● Live</span>
+        </div>
+
+
+        <div class="portfolio-preview">
+            <div class="preview-cover">
+                <div class="preview-avatar" id="previewAvatar">
+                    AH
+                </div>
+                <h2 id="previewName">
+                    Andi Hidayat
+                </h2>
+                <p id="previewHeadline">
+                    Information System Graduate
+                </p>
+            </div>
+
+
+            <div class="preview-body">
+                <div class="preview-section">
+                    <small>ABOUT ME</small>
+                    <p id="previewAbout">
+                        Information System graduate dengan
+                        ketertarikan pada data, administrasi,
+                        UI/UX, dan teknologi.
+                    </p>
+                </div>
+
+        <div class="preview-section">
+
+            <small>EXPERIENCE</small>
+
+            <div class="preview-experience">
+
+                <strong id="previewExperiencePosition">
+                    Posisi Kamu
+                </strong>
+
+                <p id="previewExperienceCompany">
+                    Perusahaan / Organisasi
+                </p>
+
+                <span id="previewExperienceDescription">
+                    Deskripsi pengalaman kamu akan muncul di sini.
+                </span>
+
+            </div>
+
+        </div>
+
+                <div class="preview-section">
+                    <small>PROJECTS</small>
+                    <div class="preview-project">
+                <div></div>
+                    <div>
+                    <strong id="previewProjectName">
+                        Project Kamu
+                    </strong>
+                    <p id="previewProjectTools">
+                        Tools / Teknologi
+                    </p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="preview-section">
+                    <small>SKILLS</small>
+                    <div class="preview-tags">
+                        <span>Excel</span>
+                        <span>Google Sheets</span>
+                        <span>Canva</span>
+                    </div>
+                </div>
+
+            <div class="preview-section">
+                <small>EDUCATION</small>
+                <div class="preview-education">
+                    <strong id="previewEducationInstitution">
+                        Universitas Kamu
+                    </strong>
+                    <p id="previewEducationMajor">
+                        Sistem Informasi
+                    </p>
+                    <span id="previewEducationYear">
+                        2021 — 2025
+                    </span>
+                </div>
+            </div>
+
+        <div class="preview-section">
+            <small>CERTIFICATES</small>
+            <div
+                class="preview-certificates"
+                id="previewCertificates">
+                <p class="empty-content">
+                    Belum ada sertifikat.
+                </p>
+            </div>
+        </div>
+        
+<div class="preview-section">
+    <small>CONTACT</small>
+    <div class="preview-contact">
+        <p>
+            📧
+            <span id="previewContactEmail">
+                email@email.com
+            </span>
+        </p>
+        <p>
+            💼
+            <span id="previewContactLinkedIn">
+                LinkedIn
+            </span>
+        </p>
+        <p>
+            📱
+            <span id="previewContactWhatsApp">
+                WhatsApp
+            </span>
+        </p>
+
+    </div>
+
+</div>
+    </div>
+
+<!-- ================= TEMPLATE MODAL ================= -->
+
+<div class="template-modal" id="templateModal">
+
+    <div class="template-modal-content">
+
+        <div class="template-modal-header">
+
+            <div>
+                <span>PILIH TEMPLATE</span>
+
+                <h2>Pilih Tampilan Portfolio</h2>
+
+                <p>
+                    Pilih desain yang paling sesuai dengan gaya kamu.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                class="close-template"
+                onclick="closeTemplateModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="template-grid">
+
+            <!-- PROFESSIONAL -->
+
+            <div
+                class="template-card selected"
+                onclick="selectTemplate('professional', this)"
+            >
+
+                <div class="template-preview professional-template">
+
+                    <div class="template-preview-header"></div>
+
+                    <div class="template-preview-body">
+
+                        <div class="template-preview-avatar"></div>
+
+                        <div class="template-preview-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <h3>Professional</h3>
+
+                <p>
+                    Bersih dan cocok untuk fresh graduate.
+                </p>
+
+            </div>
+
+
+            <!-- CREATIVE -->
+
+            <div
+                class="template-card"
+                onclick="selectTemplate('creative', this)"
+            >
+
+                <div class="template-preview creative-template">
+
+                    <div class="creative-circle"></div>
+
+                    <div class="template-preview-body">
+                        <div class="template-preview-avatar"></div>
+                        <div class="template-preview-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <h3>Creative</h3>
+                <p>Lebih visual untuk designer dan freelancer. </p>
+
+            </div>
+
+            <!-- MODERN -->
+            <div
+                class="template-card"
+                onclick="selectTemplate('modern', this)">
+                <div class="template-preview modern-template">
+                    <div class="modern-sidebar"></div>
+
+                    <div class="template-preview-body">
+                        <div class="template-preview-avatar"></div>
+                        <div class="template-preview-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <h3>Modern</h3>
+                <p>Minimalis dengan tampilan modern.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</aside>
+
+</main>
+<script src="JS2.js"></script>
+</body>
+</html>

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>APP— PortofolioKu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="usercss.css">
+</head>
+
+<body>
+
+    <!-- ================= TOPBAR ================= -->
+
+    <header class="editor-topbar">
+
+        <div class="editor-logo">
+
+            <a href="index.html">
+                <span class="logo-icon">💡</span>
+                Portofolio<span>KU</span>
+            </a>
+
+        </div>
+
+
+        <div class="topbar-actions">
+
+            <span class="save-status">
+                ✓ Tersimpan
+            </span>
+
+            <button class="preview-button" onclick="openPreview()">
+                Preview ↗
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= EDITOR ================= -->
+
+    <main class="editor-layout">
+
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-title">
+                Buat Portfolio
+            </div>
+
+            <p class="sidebar-subtitle">
+                Lengkapi informasi kamu
+            </p>
+
+
+            <nav class="editor-menu">
+
+                <button class="menu-item active" onclick="showSection('profil', this)">
+                    <span>👤</span>
+                    Profil
+                </button>
+
+                <button class="menu-item" onclick="showSection('pendidikan', this)">
+                    <span>🎓</span>
+                    Pendidikan
+                </button>
+
+                <button class="menu-item" onclick="showSection('pengalaman', this)">
+                    <span>💼</span>
+                    Pengalaman
+                </button>
+
+                <button class="menu-item" onclick="showSection('project', this)">
+                    <span>🚀</span>
+                    Project
+                </button>
+
+                <button class="menu-item" onclick="showSection('skills', this)">
+                    <span>⚡</span>
+                    Skills
+                </button>
+
+                <button class="menu-item" onclick="showSection('sertifikat', this)">
+                    <span>📜</span>
+                    Sertifikat
+                </button>
+
+                <button class="menu-item" onclick="showSection('kontak', this)">
+                    <span>📱</span>
+                    Kontak
+                </button>
+
+            </nav>
+
+
+            <div class="progress-box">
+
+                <div class="progress-header">
+
+                    <span>Progress Portfolio</span>
+
+                    <strong id="progressText">
+                        20%
+                    </strong>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div id="progressFill"></div>
+
+                </div>
+
+                <small>
+                    Lengkapi data agar portfolio lebih menarik.
+                </small>
+
+            </div>
+
+
+            <a href="index.html" class="back-home">
+                ← Kembali ke Beranda
+            </a>
+
+        </aside>
+
+
+
+        <!-- ================= FORM AREA ================= -->
+
+        <section class="form-area">
+
+
+            <!-- PROFIL -->
+
+            <div class="form-section active" id="profil">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">👤</span>
+
+                    <div>
+                        <h1>Profil</h1>
+                        <p>Perkenalkan dirimu kepada HRD.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-card">
+
+                    <div class="form-group">
+
+                        <label>Nama Lengkap</label>
+
+                        <input
+                            type="text"
+                            id="nama"
+                            placeholder="Contoh: Andi Hidayat"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Headline / Posisi</label>
+
+                        <input
+                            type="text"
+                            id="headline"
+                            placeholder="Contoh: Information System Graduate"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Tentang Saya</label>
+
+                        <textarea
+                            id="about"
+                            rows="6"
+                            placeholder="Ceritakan secara singkat tentang dirimu, pengalaman, minat, dan kemampuanmu..."
+                            oninput="updatePreview()"
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Lokasi</label>
+
+                        <input
+                            type="text"
+                            id="lokasi"
+                            placeholder="Contoh: Bandung, Jawa Barat"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <button class="save-button" onclick="saveData()">
+                        Simpan Perubahan
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PENDIDIKAN -->
+
+            <div class="form-section" id="pendidikan">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">🎓</span>
+
+                    <div>
+                        <h1>Pendidikan</h1>
+                        <p>Tambahkan latar belakang pendidikanmu.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-card">
+
+                    <div class="form-group">
+
+                        <label>Institusi / Universitas</label>
+
+                        <input
+                            type="text"
+                            id="universitas"
+                            placeholder="Contoh: Universitas Kebangsaan Republik Indonesia"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Program Studi</label>
+
+                        <input
+                            type="text"
+                            id="jurusan"
+                            placeholder="Contoh: Sistem Informasi"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>Tahun Mulai</label>
+
+                            <input
+                                type="text"
+                                id="tahunMulai"
+                                placeholder="2021"
+                                oninput="updatePreview()"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Tahun Selesai</label>
+
+                            <input
+                                type="text"
+                                id="tahunSelesai"
+                                placeholder="2025"
+                                oninput="updatePreview()"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="save-button" onclick="saveData()">
+                        Simpan Pendidikan
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PENGALAMAN -->
+
+            <div class="form-section" id="pengalaman">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">💼</span>
+
+                    <div>
+                        <h1>Pengalaman</h1>
+                        <p>Tampilkan pengalaman kerja atau organisasi.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-card">
+
+                    <div class="form-group">
+
+                        <label>Nama Posisi</label>
+
+                        <input
+                            type="text"
+                            id="posisi"
+                            placeholder="Contoh: Computer Teacher"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Perusahaan / Organisasi</label>
+
+                        <input
+                            type="text"
+                            id="perusahaan"
+                            placeholder="Contoh: PKBM Bina Bangsa Berkarakter"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Deskripsi</label>
+
+                        <textarea
+                            id="deskripsiPengalaman"
+                            rows="5"
+                            placeholder="Jelaskan tanggung jawab dan pencapaianmu..."
+                            oninput="updatePreview()"
+                        ></textarea>
+
+                    </div>
+
+
+                    <button class="save-button" onclick="saveData()">
+                        Simpan Pengalaman
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJECT -->
+
+            <div class="form-section" id="project">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">🚀</span>
+
+                    <div>
+                        <h1>Project</h1>
+                        <p>Tampilkan project terbaikmu.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-card">
+
+                    <div class="form-group">
+
+                        <label>Nama Project</label>
+
+                        <input
+                            type="text"
+                            id="namaProject"
+                            placeholder="Contoh: Sistem Informasi Akademik PKBM"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Tools / Teknologi</label>
+
+                        <input
+                            type="text"
+                            id="toolsProject"
+                            placeholder="Contoh: Figma, HTML, CSS"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Deskripsi Project</label>
+
+                        <textarea
+                            id="deskripsiProject"
+                            rows="5"
+                            placeholder="Ceritakan project yang pernah kamu kerjakan..."
+                            oninput="updatePreview()"
+                        ></textarea>
+
+                    </div>
+
+
+                    <button class="save-button" onclick="saveData()">
+                        Simpan Project
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SKILLS -->
+
+            <div class="form-section" id="skills">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">⚡</span>
+
+                    <div>
+                        <h1>Skills</h1>
+                        <p>Tambahkan kemampuan yang kamu kuasai.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-card">
+
+                    <div class="form-group">
+
+                        <label>Skills</label>
+
+                        <input
+                            type="text"
+                            id="skillsInput"
+                            placeholder="Contoh: Microsoft Excel, Canva, Figma, Google Sheets"
+                            oninput="updatePreview()"
+                        >
+
+                        <small class="input-help">
+                            Pisahkan skill menggunakan koma.
+                        </small>
+
+                    </div>
+
+
+                    <button class="save-button" onclick="saveData()">
+                        Simpan Skills
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SERTIFIKAT -->
+
+            <div class="form-section" id="sertifikat">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">📜</span>
+
+                    <div>
+                        <h1>Sertifikat</h1>
+                        <p>Tampilkan sertifikasi atau pelatihanmu.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-card">
+
+                    <div class="form-group">
+
+                        <label>Nama Sertifikat</label>
+
+                        <input
+                            type="text"
+                            id="sertifikatNama"
+                            placeholder="Contoh: Work Smarter With Microsoft Excel"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Penerbit</label>
+
+                        <input
+                            type="text"
+                            id="sertifikatPenerbit"
+                            placeholder="Contoh: Coursera"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <button class="save-button" onclick="saveData()">
+                        Simpan Sertifikat
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- KONTAK -->
+
+            <div class="form-section" id="kontak">
+
+                <div class="section-heading">
+
+                    <span class="section-icon">📱</span>
+
+                    <div>
+                        <h1>Kontak</h1>
+                        <p>Tambahkan informasi yang dapat dihubungi.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-card">
+
+                    <div class="form-group">
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="nama@email.com"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>LinkedIn</label>
+
+                        <input
+                            type="text"
+                            id="linkedin"
+                            placeholder="linkedin.com/in/username"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Instagram / Social Media</label>
+
+                        <input
+                            type="text"
+                            id="instagram"
+                            placeholder="@username"
+                            oninput="updatePreview()"
+                        >
+
+                    </div>
+
+
+                    <button class="save-button" onclick="saveData()">
+                        Simpan Kontak
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= LIVE PREVIEW ================= -->
+
+        <section class="preview-area">
+
+            <div class="preview-header">
+
+                <div>
+                    <span>LIVE PREVIEW</span>
+                    <small>Portfolio kamu</small>
+                </div>
+
+                <button onclick="openPreview()">
+                    ↗ Full Preview
+                </button>
+
+            </div>
+
+
+            <div class="portfolio-preview">
+
+                <div class="preview-profile">
+
+                    <div class="preview-avatar" id="previewAvatar">
+                        AH
+                    </div>
+
+                    <div>
+
+                        <h2 id="previewNama">
+                            Nama Kamu
+                        </h2>
+
+                        <p id="previewHeadline">
+                            Posisi / Profesi
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="preview-divider"></div>
+
+
+                <section>
+
+                    <span class="preview-label">
+                        ABOUT ME
+                    </span>
+
+                    <h3>
+                        Tentang Saya
+                    </h3>
+
+                    <p id="previewAbout">
+                        Ceritakan tentang dirimu, pengalaman,
+                        minat, dan kemampuan yang kamu miliki.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <span class="preview-label">
+                        EXPERIENCE
+                    </span>
+
+                    <h3 id="previewPosisi">
+                        Pengalaman
+                    </h3>
+
+                    <p id="previewPerusahaan">
+                        Perusahaan / Organisasi
+                    </p>
+
+                    <p id="previewPengalaman">
+                        Deskripsi pengalamanmu akan muncul di sini.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <span class="preview-label">
+                        EDUCATION
+                    </span>
+
+                    <h3 id="previewUniversitas">
+                        Universitas
+                    </h3>
+
+                    <p id="previewJurusan">
+                        Program Studi
+                    </p>
+
+                    <p id="previewTahun">
+                        Tahun
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <span class="preview-label">
+                        PROJECT
+                    </span>
+
+                    <h3 id="previewProject">
+                        Nama Project
+                    </h3>
+
+                    <p id="previewTools">
+                        Tools / Teknologi
+                    </p>
+
+                    <p id="previewProjectDesc">
+                        Deskripsi project akan muncul di sini.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <span class="preview-label">
+                        SKILLS
+                    </span>
+
+                    <div class="skill-list" id="previewSkills">
+
+                        <span>Skill 1</span>
+                        <span>Skill 2</span>
+                        <span>Skill 3</span>
+
+                    </div>
+
+                </section>
+
+
+                <section>
+
+                    <span class="preview-label">
+                        CONTACT
+                    </span>
+
+                    <p id="previewEmail">
+                        email@example.com
+                    </p>
+
+                    <p id="previewLinkedin">
+                        LinkedIn
+                    </p>
+
+                    <p id="previewInstagram">
+                        Instagram
+                    </p>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="JS2.js"></script>
+
+</body>
+
+</html>
