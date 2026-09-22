@@ -2,302 +2,832 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport"
+
+    <meta
+        name="viewport"
         content="width=device-width, initial-scale=1.0">
-    <title>PortfolioKu.app</title>
-    <link rel="preconnect"
+    <title>PortfolioKu</title>
+    <link rel="stylesheet" href="liveportocss.css">
+    <link
+        rel="preconnect"
         href="https://fonts.googleapis.com">
-    <link rel="preconnect"
+    <link
+        rel="preconnect"
         href="https://fonts.gstatic.com"
         crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet"
-        href="liveportocss.css">
-
 </head>
 
 
-<body>
-
-    <!-- NAVBAR -->
-
-    <nav class="portfolio-nav">
-
-        <div class="portfolio-logo">
-            Portofolio<span>KU</span>
-        </div>
-
-        <div class="portfolio-actions">
-
-            <button onclick="window.print()">
-                🖨 Cetak
-            </button>
-
-            <button
-                class="share-btn"
-                onclick="sharePortfolio()">
-                🔗 Bagikan
-            </button>
-
-        </div>
-
-    </nav>
+<body
+    id="portfolioBody"
+    class="template-professional"
+>
 
 
-    <!-- HERO -->
+<!-- =========================================
+     NAVBAR
+========================================= -->
 
-    <header class="portfolio-hero">
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            Portofolio<span>Ku</span>
+        </a>
+
+
+        <nav class="nav-menu">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#experience">Experience</a>
+
+            <a href="#project">Project</a>
+
+            <a href="#skills">Skills</a>
+
+            <a href="#certificates">Certificates</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+
+        <button
+            class="nav-contact"
+            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+        >
+            Contact Me
+            <span>→</span>
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-glow hero-glow-one"></div>
+
+    <div class="hero-glow hero-glow-two"></div>
+
+
+    <div class="hero-container">
+
+
+        <!-- LEFT -->
 
         <div class="hero-content">
 
-            <div
-                class="portfolio-avatar"
-                id="portfolioAvatar">
+            <span class="hero-small">
+                HELLO, I'M
+            </span>
 
-                AH
+
+            <h1>
+
+                <span id="portfolioName">
+                    Nama Kamu
+                </span>
+
+            </h1>
+
+
+            <h2 id="portfolioHeadline">
+                Information System Graduate
+            </h2>
+
+
+            <p
+                class="hero-description"
+                id="portfolioAbout"
+            >
+                Fresh graduate yang memiliki ketertarikan
+                pada teknologi, data, administrasi,
+                dan pengembangan digital.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#project"
+                    class="btn btn-primary"
+                >
+                    Explore My Portfolio
+                    <span>→</span>
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-outline"
+                >
+                    Contact Me
+                    <span>→</span>
+                </a>
 
             </div>
 
 
-            <div>
+            <div class="social-links">
 
-                <p class="portfolio-label">
-                    PORTFOLIO
-                </p>
+                <a href="#" aria-label="LinkedIn">
+                    in
+                </a>
 
-                <h1 id="portfolioName">
-                    Nama Kamu
-                </h1>
+                <a href="#" aria-label="Instagram">
+                    ◎
+                </a>
 
-                <p
-                    class="portfolio-headline"
-                    id="portfolioHeadline">
+                <a href="#" aria-label="GitHub">
+                    ◉
+                </a>
 
-                    Profesi Kamu
+                <a href="#" aria-label="Email">
+                    @
+                </a>
 
-                </p>
+            </div>
+
+
+            <div class="scroll-text">
+
+                <span class="scroll-line"></span>
+
+                Scroll Down
+
+                <span>↓</span>
 
             </div>
 
         </div>
 
-    </header>
 
 
-    <!-- MAIN -->
+        <!-- RIGHT / FOTO -->
 
-    <main class="portfolio-container">
+        <div class="hero-image-area">
 
+            <div class="image-circle"></div>
 
-        <!-- ABOUT -->
+            <div class="image-ring"></div>
 
-        <section class="portfolio-section">
-
-            <span class="section-label">
-                ABOUT ME
-            </span>
-
-            <h2>Tentang Saya</h2>
-
-            <p
-                class="about-text"
-                id="portfolioAbout">
-
-                Ceritakan tentang dirimu.
-
-            </p>
-
-        </section>
-
-
-        <!-- EDUCATION -->
-
-        <section class="portfolio-section">
-
-            <span class="section-label">
-                EDUCATION
-            </span>
-
-            <h2>Pendidikan</h2>
+            <div class="image-grid-shape"></div>
 
 
             <div
-                class="education-card"
-                id="portfolioEducation">
-
-                <h3 id="portfolioInstitution">
-                    Universitas Kamu
-                </h3>
-
-                <p id="portfolioMajor">
-                    Sistem Informasi
-                </p>
-
-                <span id="portfolioYear">
-                    2021 — 2025
-                </span>
-
+                class="portfolio-avatar"
+                id="portfolioAvatar"
+            >
+                AH
             </div>
 
-        </section>
 
+            <div class="hero-location">
 
-        <!-- EXPERIENCE -->
+                <span class="location-dot"></span>
 
-                <section class="portfolio-section" id="experienceSection">
-
-            <span class="section-label">
-                EXPERIENCE
-            </span>
-
-            <h2>Pengalaman</h2>
-
-            <div class="experience-card">
-
-                <h3 id="portfolioExperiencePosition">
-                    Posisi Kamu
-                </h3>
-
-                <p
-                    class="experience-company"
-                    id="portfolioExperienceCompany"
-                >
-                    Perusahaan / Organisasi
-                </p>
-                <p
-                    class="experience-description"
-                    id="portfolioExperienceDescription">
-                    Deskripsi pengalaman kamu.
-                </p>
-            </div>
-        </section>
-
-
-        <!-- PROJECT -->
-
-        <section class="portfolio-section">
-
-            <span class="section-label">
-                PROJECTS
-            </span>
-
-            <h2>Project</h2>
-
-            <div
-                class="project-list"
-                id="portfolioProjects">
-
-                <div class="project-card">
-
-                    <h3>
-                        Project Kamu
-                    </h3>
-
-                    <p>
-                        Tools / Teknologi
-                    </p>
-
+                <div>
+                    <small>BASED IN</small>
+                    <strong>Indonesia</strong>
                 </div>
 
             </div>
 
-        </section>
-
-
-        <!-- SKILLS -->
-
-        <section class="portfolio-section">
-
-            <span class="section-label">
-                SKILLS
-            </span>
-
-            <h2>Keahlian</h2>
-
-            <div
-                class="portfolio-skills"
-                id="portfolioSkills">
-
-            </div>
-
-        </section>
-
-
-        <!-- CERTIFICATE -->
-
-        <section class="portfolio-section" id="certificateSection">
-
-            <span class="section-label">
-                CERTIFICATES
-            </span>
-
-            <h2>Sertifikat</h2>
-
-            <div
-                class="certificate-grid"
-                id="portfolioCertificates"
-            ></div>
-
-        </section>
-
-
-        <!-- CONTACT -->
-
-       <section class="portfolio-section" id="contactSection">
-
-    <span class="section-label">
-        CONTACT
-    </span>
-
-    <h2>Hubungi Saya</h2>
-
-    <div class="contact-grid">
-
-        <a
-            id="portfolioContactEmail"
-            href="#"
-        >
-            📧 Email
-        </a>
-
-        <a
-            id="portfolioContactLinkedIn"
-            href="#"
-            target="_blank"
-        >
-            💼 LinkedIn
-        </a>
-
-        <a
-            id="portfolioContactWhatsApp"
-            href="#"
-            target="_blank"
-        >
-            📱 WhatsApp
-        </a>
+        </div>
 
     </div>
 
 </section>
 
 
-    </main>
+
+<!-- =========================================
+     STATS
+========================================= -->
+
+<section class="stats-section">
+
+    <div class="stats-container">
 
 
-    <footer>
+        <div class="stat-item">
+
+            <strong>1<span>+</span></strong>
+
+            <p>Years of Experience</p>
+
+        </div>
+
+
+        <div class="stat-item">
+
+            <strong>3<span>+</span></strong>
+
+            <p>Completed Projects</p>
+
+        </div>
+
+
+        <div class="stat-item">
+
+            <strong>95<span>%</span></strong>
+
+            <p>Project Satisfaction</p>
+
+        </div>
+
+
+        <div class="stat-item">
+
+            <strong>5<span>+</span></strong>
+
+            <p>Certificates</p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section
+    class="section about-section"
+    id="about"
+>
+
+    <div class="section-container about-grid">
+
+
+        <div class="about-visual">
+
+            <div class="cube cube-one"></div>
+
+            <div class="cube cube-two"></div>
+
+            <div class="cube cube-three"></div>
+
+            <div class="about-circle">
+
+                <span>01</span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="about-content">
+
+            <span class="section-label">
+                ABOUT ME
+            </span>
+
+
+            <h2>
+                Turning Ideas
+                Into
+                <span>Digital Solutions</span>
+            </h2>
+
+
+            <p id="portfolioAboutDetail">
+
+                Saya adalah seorang fresh graduate
+                yang memiliki ketertarikan pada
+                teknologi, data, administrasi,
+                dan pengembangan solusi digital.
+
+            </p>
+
+
+            <div class="about-features">
+
+                <div>
+
+                    <span>01</span>
+
+                    <p>
+                        Detail<br>
+                        Oriented
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>02</span>
+
+                    <p>
+                        Fast<br>
+                        Learner
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>03</span>
+
+                    <p>
+                        Team<br>
+                        Player
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="#experience"
+                class="text-link"
+            >
+                Explore My Journey →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     EDUCATION
+========================================= -->
+
+<section
+    class="section education-section"
+    id="education"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                EDUCATION
+            </span>
+
+            <h2>
+                My Education
+            </h2>
+
+        </div>
+
+
+        <div class="education-card">
+
+            <div class="education-icon">
+                🎓
+            </div>
+
+
+            <div class="education-info">
+
+                <h3 id="portfolioEducationInstitution">
+                    Universitas Kamu
+                </h3>
+
+                <p id="portfolioEducationMajor">
+                    Sistem Informasi
+                </p>
+
+            </div>
+
+
+            <span
+                class="education-year"
+                id="portfolioEducationYear"
+            >
+                2021 — 2025
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     EXPERIENCE
+========================================= -->
+
+<section
+    class="section experience-section"
+    id="experience"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                EXPERIENCE
+            </span>
+
+            <h2>
+                My Experience
+            </h2>
+
+        </div>
+
+
+        <div class="experience-layout">
+
+
+            <div class="experience-number">
+                01
+            </div>
+
+
+            <div class="experience-card">
+
+                <span class="experience-year">
+                    EXPERIENCE
+                </span>
+
+
+                <h3 id="portfolioExperiencePosition">
+                    Posisi Kamu
+                </h3>
+
+
+                <h4 id="portfolioExperienceCompany">
+                    Perusahaan / Organisasi
+                </h4>
+
+
+                <p id="portfolioExperienceDescription">
+                    Deskripsi pengalaman kamu akan
+                    tampil di sini.
+                </p>
+
+
+                <div class="experience-line"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     PROJECT
+========================================= -->
+
+<section
+    class="section project-section"
+    id="project"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading project-heading">
+
+            <div>
+
+                <span class="section-label">
+                    SELECTED WORK
+                </span>
+
+                <h2>
+                    Featured Project
+                </h2>
+
+            </div>
+
+
+            <span class="project-count">
+                01 / PROJECT
+            </span>
+
+        </div>
+
+
+        <div class="project-feature-card">
+
+
+            <div class="project-number">
+                01
+            </div>
+
+
+            <div class="project-content">
+
+                <span class="project-category">
+                    DIGITAL PROJECT
+                </span>
+
+
+                <h3 id="portfolioProjectName">
+                    Project Kamu
+                </h3>
+
+
+                <p
+                    class="project-tools"
+                    id="portfolioProjectTools"
+                >
+                    Tools / Teknologi
+                </p>
+
+
+                <p
+                    class="project-description"
+                    id="portfolioProjectDescription"
+                >
+                    Deskripsi project kamu akan
+                    tampil di sini.
+                </p>
+
+
+                <a
+                    href="#"
+                    class="project-link"
+                >
+                    View Project
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+
+            <div class="project-visual">
+
+                <div class="project-window">
+
+                    <div class="window-bar">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="window-content">
+
+                        <div class="window-line long"></div>
+
+                        <div class="window-line"></div>
+
+                        <div class="window-box">
+
+                            <div></div>
+                            <div></div>
+                            <div></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SKILLS
+========================================= -->
+
+<section
+    class="section skills-section"
+    id="skills"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                EXPERTISE
+            </span>
+
+            <h2>
+                Skills & Tools
+            </h2>
+
+        </div>
+
+
+        <div
+            class="skills-list"
+            id="portfolioSkills"
+        >
+
+            <span class="skill-tag">
+                Excel
+            </span>
+
+            <span class="skill-tag">
+                Google Sheets
+            </span>
+
+            <span class="skill-tag">
+                Canva
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CERTIFICATES
+========================================= -->
+
+<section
+    class="section certificates-section"
+    id="certificates"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                ACHIEVEMENTS
+            </span>
+
+            <h2>
+                Certificates
+            </h2>
+
+        </div>
+
+
+        <div
+            class="certificate-grid"
+            id="portfolioCertificates"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section
+    class="contact-section"
+    id="contact"
+>
+
+    <div class="contact-grid-bg"></div>
+
+
+    <div class="section-container contact-container">
+
+        <span class="section-label">
+            GET IN TOUCH
+        </span>
+
+
+        <h2>
+            Let's Build Something
+            <span>Great Together.</span>
+        </h2>
+
 
         <p>
-            Dibuat dengan
-            <strong>PortofolioKU</strong>
+            Punya project, kesempatan kerja,
+            atau ingin berkolaborasi?
+            Jangan ragu untuk menghubungi saya.
         </p>
 
-    </footer>
+
+        <div class="contact-buttons">
+
+            <a
+                id="portfolioContactEmail"
+                href="#"
+                class="btn btn-primary"
+            >
+                Email Me →
+            </a>
 
 
-    <script src="JS3.js"></script>
+            <a
+                id="portfolioContactLinkedIn"
+                href="#"
+                target="_blank"
+                class="btn btn-outline"
+            >
+                LinkedIn →
+            </a>
+
+
+            <a
+                id="portfolioContactWhatsApp"
+                href="#"
+                target="_blank"
+                class="btn btn-outline"
+            >
+                WhatsApp →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div>
+
+            <a href="#home" class="logo">
+                Portofolio<span>Ku</span>
+            </a>
+
+            <p>
+                Built with PortofolioKu.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                © 2026 Portfolio.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script src="portfolio.js"></script>
 
 </body>
 

@@ -7,19 +7,16 @@
 
 function loadPortfolio() {
 
-    const saved = localStorage.getItem("portfolioData");
+    const saved =
+        localStorage.getItem("portfolioData");
 
-    if (!saved) {
-        console.log("Belum ada data portfolio.");
-        return;
-    }
+    if (!saved) return;
 
-    const data = JSON.parse(saved);
+    const data =
+        JSON.parse(saved);
 
 
-    // =========================
-    // PROFIL
-    // =========================
+    // PROFILE
 
     const name =
         document.getElementById("portfolioName");
@@ -32,20 +29,202 @@ function loadPortfolio() {
 
 
     if (name) {
+
         name.textContent =
             data.name || "Nama Kamu";
+
     }
+
 
     if (headline) {
+
         headline.textContent =
-            data.headline || "Profesi Kamu";
+            data.headline ||
+            "Information System Graduate";
+
     }
+
 
     if (about) {
+
         about.textContent =
-            data.about || "Ceritakan tentang dirimu.";
+            data.about ||
+            "Ceritakan tentang dirimu.";
+
     }
 
+
+    // ABOUT DETAIL
+
+    const aboutDetail =
+        document.getElementById(
+            "portfolioAboutDetail"
+        );
+
+    if (aboutDetail) {
+
+        aboutDetail.textContent =
+            data.about ||
+            "Ceritakan tentang dirimu.";
+
+    }
+
+
+    // EDUCATION
+
+    if (data.education) {
+
+        const institution =
+            document.getElementById(
+                "portfolioEducationInstitution"
+            );
+
+        const major =
+            document.getElementById(
+                "portfolioEducationMajor"
+            );
+
+        const year =
+            document.getElementById(
+                "portfolioEducationYear"
+            );
+
+
+        if (institution) {
+
+            institution.textContent =
+                data.education.institution ||
+                "Universitas Kamu";
+
+        }
+
+
+        if (major) {
+
+            major.textContent =
+                data.education.major ||
+                "Sistem Informasi";
+
+        }
+
+
+        if (year) {
+
+            year.textContent =
+                `${data.education.start || "2021"} — ${data.education.end || "2025"}`;
+
+        }
+
+    }
+
+
+    // EXPERIENCE
+
+    if (data.experience) {
+
+        const position =
+            document.getElementById(
+                "portfolioExperiencePosition"
+            );
+
+        const company =
+            document.getElementById(
+                "portfolioExperienceCompany"
+            );
+
+        const description =
+            document.getElementById(
+                "portfolioExperienceDescription"
+            );
+
+
+        if (position) {
+
+            position.textContent =
+                data.experience.position ||
+                "Posisi Kamu";
+
+        }
+
+
+        if (company) {
+
+            company.textContent =
+                data.experience.company ||
+                "Perusahaan / Organisasi";
+
+        }
+
+
+        if (description) {
+
+            description.textContent =
+                data.experience.description ||
+                "Deskripsi pengalaman kamu.";
+
+        }
+
+    }
+
+
+    // PROJECT
+
+    if (data.project) {
+
+        const projectName =
+            document.getElementById(
+                "portfolioProjectName"
+            );
+
+        const projectTools =
+            document.getElementById(
+                "portfolioProjectTools"
+            );
+
+        const projectDescription =
+            document.getElementById(
+                "portfolioProjectDescription"
+            );
+
+
+        if (projectName) {
+
+            projectName.textContent =
+                data.project.name ||
+                "Project Kamu";
+
+        }
+
+
+        if (projectTools) {
+
+            projectTools.textContent =
+                data.project.tools ||
+                "Tools / Teknologi";
+
+        }
+
+
+        if (projectDescription) {
+
+            projectDescription.textContent =
+                data.project.description ||
+                "Deskripsi project kamu.";
+
+        }
+
+    }
+
+
+    loadPortfolioSkills(data);
+
+    loadPortfolioCertificates(data);
+
+    loadPortfolioContact(data);
+
+    loadPortfolioPhoto();
+
+}
 
     // =========================
     // PENDIDIKAN
@@ -430,12 +609,10 @@ function loadPortfolioPhoto() {
 
     if (!savedPhoto) return;
 
-
     const avatar =
         document.getElementById("portfolioAvatar");
 
     if (!avatar) return;
-
 
     avatar.textContent = "";
 
@@ -446,7 +623,10 @@ function loadPortfolioPhoto() {
 
     avatar.style.backgroundPosition = "center";
 
+    avatar.style.backgroundRepeat = "no-repeat";
+
 }
+
 
 
 /* =====================================================
@@ -592,3 +772,5 @@ function loadPortfolioCertificates(data) {
     });
 
 }
+
+
