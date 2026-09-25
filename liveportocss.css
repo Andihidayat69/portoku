@@ -361,9 +361,8 @@ button {
             90deg,
             #FFFFFF,
             #4DA3FF
-        );
-
-    -webkit-background-clip: text;
+        );-webkit-background-clip: text;
+    
 
     -webkit-text-fill-color: transparent;
 

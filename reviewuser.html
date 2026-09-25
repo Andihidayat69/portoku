@@ -40,20 +40,16 @@
 
 
 <main class="editor-layout">
-
     <!-- ================= SIDEBAR ================= -->
-
     <aside class="sidebar">
         <div class="sidebar-header">
             <h3>Portfolio Saya</h3>
         </div>
         <div class="progress-box">
-
             <div class="progress-info">
                 <span>Profil selesai</span>
                 <strong id="progressText">0%</strong>
             </div>
-
             <div class="progress">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
@@ -61,126 +57,96 @@
 
 
         <nav class="editor-menu">
-
             <button class="menu-item active" onclick="showSection('profile', this)">
-                <span>👤</span>
-                Profil
+                <span>👤</span> Profil 
             </button>
 
             <button class="menu-item" onclick="showSection('education', this)">
-                <span>🎓</span>
-                Pendidikan
+                <span>🎓</span> Pendidikan
             </button>
 
             <button class="menu-item" onclick="showSection('experience', this)">
-                <span>💼</span>
-                Pengalaman
+                <span>💼</span>Pengalaman
             </button>
 
             <button class="menu-item" onclick="showSection('project', this)">
-                <span>🚀</span>
-                Project
+                <span>🚀</span>Project
             </button>
 
             <button class="menu-item" onclick="showSection('skill', this)">
-                <span>⚡</span>
-                Skill
+                <span>⚡</span>Skill
             </button>
 
             <button class="menu-item" onclick="showSection('certificate', this)">
-                <span>🏆</span>
-                Sertifikat
+                <span>🏆</span>Sertifikat
             </button>
 
             <button class="menu-item" onclick="showSection('contact', this)">
-                <span>🔗</span>
-                Kontak
+                <span>🔗</span>Kontak
             </button>
-
         </nav>
 
 
         <div class="template-box">
-
             <p>Template</p>
-
            <button type="button" onclick="openTemplateModal()">
                  🎨 Ganti Template
-            </button>
-
+           </button>
         </div>
-
     </aside>
 
 
     <!-- ================= FORM ================= -->
 
     <section class="editor-content">
-
-
         <!-- PROFILE -->
-
         <div class="form-section active-section" id="profile">
             <div class="section-heading">
-                <span class="section-label">
-                    LANGKAH 01
-                </span>
+                <span class="section-label">LANGKAH 01</span>
                 <h1>Profil Kamu</h1>
-                <p>
-                    Informasi dasar yang akan ditampilkan
-                    di bagian utama portfolio.
-                </p>
+                <p> Informasi dasar yang akan ditampilkan di bagian utama portfolio.</p>
             </div>
 
-
             <div class="form-card">
-                <div class="photo-area">
-                    <div class="photo-area">
+            <div class="photo-area">
+            <div class="photo-area">
 
-    <div
-        class="profile-photo"
-        id="profilePhotoPreview"
-    >
-        AH
-    </div>
+            <div
+                class="profile-photo"
+                id="profilePhotoPreview">
+                AH
+            </div>
 
+            <div>
+                <h4>Foto Profil</h4>
+                <p>Gunakan foto profesional.</p>
+                <input
+                    type="file"
+                    id="profilePhotoInput"
+                    accept="image/*"
+                    hidden>
+                <button
+                    type="button"
+                    class="upload-btn"
+                    onclick="document.getElementById('profilePhotoInput').click()">
+                    Upload Foto
+                </button>
+            </div>
 
-    <div>
-        <h4>Foto Profil</h4>
-        <p>Gunakan foto profesional.</p>
-
-        <input
-            type="file"
-            id="profilePhotoInput"
-            accept="image/*"
-            hidden>
-
-        <button
-            type="button"
-            class="upload-btn"
-            onclick="document.getElementById('profilePhotoInput').click()">
-            Upload Foto
-        </button>
-    </div>
-
-</div>
-                    </div>
-                </div>
-
-
+            </div>
+            </div>
+                
+        </div>
                 <div class="form-grid">
-
                     <div class="form-group">
                         <label>Nama Lengkap</label>
                         <input
                             type="text"
                             id="nameInput"
                             value="Andi Hidayat"
-                            oninput="updatePreview()"
-                        >
+                            oninput="updatePreview()">
                     </div>
                     <div class="form-group">
-
                         <label>Profesi / Headline</label>
                         <input
                             type="text"
@@ -194,15 +160,11 @@
                 <div class="form-group">
 
                     <label>Tentang Saya</label>
-
                     <textarea
                         id="aboutInput"
                         rows="5"
-                        oninput="updatePreview()"
-                    >Information System graduate dengan ketertarikan pada data, administrasi, UI/UX, dan teknologi.</textarea>
-
+                        oninput="updatePreview()" >Information System graduate dengan ketertarikan pada data, administrasi, UI/UX, dan teknologi.</textarea>
                 </div>
-
 
                 <div class="form-group">
 
@@ -212,7 +174,6 @@
                         type="text"
                         placeholder="Contoh: Bandung, Jawa Barat"
                     >
-
                 </div>
 
 
@@ -311,18 +272,13 @@
 
         <div class="form-card">
 
-        <div class="form-group">
-
+            <div class="form-group">
                 <label>Posisi</label>
-
                 <input
                     type="text"
                     id="experiencePosition"
-                    placeholder="Contoh: Marketing Intern"
-                >
-
+                    placeholder="Contoh: Marketing Intern">
             </div>
-
 
             <div class="form-group">
                 <label>Perusahaan / Organisasi</label>
@@ -331,7 +287,6 @@
                     id="experienceCompany"
                     placeholder="Nama perusahaan" >
             </div>
-
 
             <div class="form-group">
                 <label>Deskripsi</label>
@@ -349,8 +304,6 @@
             </button>
             </div>
         </div>
-
-
 
         <!-- PROJECT -->
         <div class="form-section" id="project">
@@ -437,25 +390,14 @@
 
 <div
     class="form-section"
-    id="certificate"
->
-
+    id="certificate">
     <div class="section-heading">
-
-        <span class="section-label">
-            LANGKAH 06
-        </span>
-
+        <span class="section-label"> LANGKAH 06</span>
         <h1>Sertifikat</h1>
-
-        <p>
-            Tambahkan sertifikat, kursus,
-            atau pelatihan yang pernah kamu ikuti.
-        </p>
-
+        <p>Tambahkan sertifikat, kursus, atau pelatihan yang pernah kamu ikuti.</p>
     </div>
 
-            <!--upload sertikita-->
+        <!--upload sertikita-->
         <div class="form-card">
         <div class="certificate-upload">
         <div class="certificate-icon">🏆</div>
@@ -495,7 +437,6 @@
                     type="text"
                     id="certificateIssuer"
                     placeholder="Contoh: Coursera">
-
             </div>
         
             <div class="form-group">
@@ -514,8 +455,7 @@
             <input
                 type="text"
                 id="certificateLink"
-                placeholder="https://..."
-            >
+                placeholder="https://..." >
             <small class="input-help">
                 Opsional — bisa berupa link verifikasi sertifikat.
             </small>
@@ -526,7 +466,6 @@
             onclick="addCertificate()">
             + Tambah Sertifikat
         </button>
-
         <div class="certificate-list" id="certificateList"></div>
     
     </div>
@@ -535,70 +474,57 @@
 
         <!-- ================= CONTACT ================= -->
 
-<div class="form-section" id="contact">
-
-    <div class="section-heading">
-
-        <span class="section-label">LANGKAH 07</span>
-
-        <h1>Kontak</h1>
-
-        <p>
-            Tambahkan informasi yang dapat digunakan orang untuk menghubungimu.
-        </p>
-
-    </div>
-
-    <div class="form-card">
-
-        <div class="form-group">
-                <label>Email</label>
-                <input
-                    type="email"
-                    id="contactEmail"
-                    placeholder="nama@email.com">
+        <div class="form-section" id="contact">
+            <div class="section-heading">
+                <span class="section-label">LANGKAH 07</span>
+                <h1>Kontak</h1>
+                <p>Tambahkan informasi yang dapat digunakan orang untuk menghubungimu.</p>
             </div>
 
+            <div class="form-card">
+                <div class="form-group">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            id="contactEmail"
+                            placeholder="nama@email.com">
+                    </div>
 
-            <div class="form-group">
-                <label>LinkedIn</label>
-                <input
-                    type="text"
-                    id="contactLinkedIn"
-                    placeholder="https://linkedin.com/in/username">
-            </div>
+                    <div class="form-group">
+                        <label>LinkedIn</label>
+                        <input
+                            type="text"
+                            id="contactLinkedIn"
+                            placeholder="https://linkedin.com/in/username">
+                    </div>
 
+                    <div class="form-group">
+                        <label>WhatsApp</label>
+                        <input
+                            type="text"
+                            id="contactWhatsApp"
+                            placeholder="08xxxxxxxxxx">
+                    </div>
 
-            <div class="form-group">
-                <label>WhatsApp</label>
-                <input
-                    type="text"
-                    id="contactWhatsApp"
-                    placeholder="08xxxxxxxxxx">
-            </div>
+                    <button
+                        type="button"
+                        class="save-btn"
+                        onclick="saveData()">
+                        Simpan Kontak
+                    </button>
 
-
-            <button
-                type="button"
-                class="save-btn"
-                onclick="saveData()">
-                Simpan Kontak
-            </button>
-
-            </div>
-        </div>
-    </section>
+                    </div>
+                </div>
+            </section>
 
 
     <!-- ================= LIVE PREVIEW ================= -->
 
     <aside class="preview-area">
-
         <div class="preview-header">
             <span>LIVE PREVIEW</span>
             <span class="online">● Live</span>
         </div>
-
 
         <div class="portfolio-preview">
             <div class="preview-cover">
@@ -608,9 +534,7 @@
                 <h2 id="previewName">
                     Andi Hidayat
                 </h2>
-                <p id="previewHeadline">
-                    Information System Graduate
-                </p>
+                <p id="previewHeadline"> Information System Graduate</p>
             </div>
 
 
@@ -625,23 +549,17 @@
                 </div>
 
         <div class="preview-section">
-
             <small>EXPERIENCE</small>
-
             <div class="preview-experience">
-
                 <strong id="previewExperiencePosition">
                     Posisi Kamu
                 </strong>
-
                 <p id="previewExperienceCompany">
                     Perusahaan / Organisasi
                 </p>
-
                 <span id="previewExperienceDescription">
                     Deskripsi pengalaman kamu akan muncul di sini.
                 </span>
-
             </div>
 
         </div>
@@ -673,52 +591,26 @@
             <div class="preview-section">
                 <small>EDUCATION</small>
                 <div class="preview-education">
-                    <strong id="previewEducationInstitution">
-                        Universitas Kamu
-                    </strong>
-                    <p id="previewEducationMajor">
-                        Sistem Informasi
-                    </p>
-                    <span id="previewEducationYear">
-                        2021 — 2025
-                    </span>
+                    <strong id="previewEducationInstitution"> Universitas Kamu </strong>
+                    <p id="previewEducationMajor"> Sistem Informasi</p>
+                    <span id="previewEducationYear"> 2021 — 2025</span>
                 </div>
             </div>
 
         <div class="preview-section">
             <small>CERTIFICATES</small>
-            <div
-                class="preview-certificates"
-                id="previewCertificates">
-            </div>
+            <div class="preview-certificates" id="previewCertificates"></div>
         </div>
         
 <div class="preview-section">
     <small>CONTACT</small>
     <div class="preview-contact">
-        <p>
-            📧
-            <span id="previewContactEmail">
-                email@email.com
-            </span>
-        </p>
-        <p>
-            💼
-            <span id="previewContactLinkedIn">
-                LinkedIn
-            </span>
-        </p>
-        <p>
-            📱
-            <span id="previewContactWhatsApp">
-                WhatsApp
-            </span>
-        </p>
-
+        <p>📧<span id="previewContactEmail"> email@email.com</span></p>
+        <p>💼<span id="previewContactLinkedIn"> LinkedIn</span></p>
+        <p>📱<span id="previewContactWhatsApp">WhatsApp</span></p>
     </div>
-
+    </div>
 </div>
-    </div>
 
 <!-- ================= TEMPLATE MODAL ================= -->
 
