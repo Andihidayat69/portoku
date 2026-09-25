@@ -3,6 +3,23 @@
 // ======================================================
 
 
+const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+const navMenu = document.getElementById("navMenu");
+
+if (mobileMenuToggle && navMenu) {
+    mobileMenuToggle.addEventListener("click", function () {
+        const isOpen = navMenu.classList.toggle("mobile-open");
+        mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("mobile-open");
+            mobileMenuToggle.setAttribute("aria-expanded", "false");
+        });
+    });
+}
+
 // ======================================================
 // 1. SCROLL REVEAL
 // ======================================================

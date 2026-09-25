@@ -37,8 +37,28 @@ function showSection(sectionId, button) {
     if (button) {
         button.classList.add("active");
     }
+
+    const sidebar = document.querySelector(".sidebar");
+    if (window.innerWidth <= 700 && sidebar) {
+        sidebar.classList.remove("mobile-open");
+        const toggle = document.getElementById("mobileMenuToggle");
+        if (toggle) {
+            toggle.setAttribute("aria-expanded", "false");
+        }
+    }
 }
 
+function initMobileMenu() {
+    const toggle = document.getElementById("mobileMenuToggle");
+    const sidebar = document.querySelector(".sidebar");
+
+    if (!toggle || !sidebar) return;
+
+    toggle.addEventListener("click", function () {
+        const isOpen = sidebar.classList.toggle("mobile-open");
+        toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+}
 
 /* =====================================================
    LIVE PREVIEW
@@ -607,6 +627,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePreview();
     loadCertificates();
     updateCertificatePreview();
+    initMobileMenu();
 
    // Load template yang terakhir dipilih
 
