@@ -466,22 +466,14 @@ body {
 
 
 .form-section.active-section {
-
     display: block;
-
 }
 
-
 .photo-area {
-
     display: flex;
-
     align-items: center;
-
-    gap: 15px;
-
+    gap: 25px;
     margin-bottom: 25px;
-
 }
 
 
@@ -499,37 +491,25 @@ body {
 
 
 .photo-area h4 {
-
     font-size: 13px;
-
 }
 
 
 .photo-area p {
-
     font-size: 10px;
-
     color: var(--text-light);
 
 }
 
 
 .upload-btn {
-
     border: none;
-
     background: transparent;
-
     color: var(--primary);
-
     font-size: 10px;
-
     font-weight: 700;
-
     padding: 0;
-
     margin-top: 5px;
-
     cursor: pointer;
 
 }
@@ -627,9 +607,7 @@ body {
 /* ================= SKILL ================= */
 
 .skill-input {
-
     display: flex;
-
     gap: 10px;
 
 }
@@ -638,13 +616,9 @@ body {
 .skill-input input {
 
     flex: 1;
-
     border: 1px solid var(--border);
-
     border-radius: 9px;
-
     padding: 12px;
-
     outline: none;
 
 }
@@ -653,28 +627,19 @@ body {
 .skill-input button {
 
     background: var(--primary);
-
     color: white;
-
     border: none;
-
     padding: 0 18px;
-
     border-radius: 9px;
-
     cursor: pointer;
-
 }
 
 
 .skill-list {
 
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 8px;
-
     margin-top: 20px;
 
 }
@@ -913,61 +878,63 @@ body {
 
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:1100px) {
-
+@media (max-width: 1100px) {
     .editor-layout {
-
         grid-template-columns: 220px 1fr;
-
     }
 
     .preview-area {
-
         display: none;
-
-    }
-
-}
-
-
-@media(max-width:700px) {
-
-    .editor-navbar {
-
-        padding: 0 15px;
-
-    }
-
-    .editor-title {
-
-        display: none;
-
-    }
-
-    .editor-layout {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .sidebar {
-
-        display: none;
-
     }
 
     .editor-content {
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+}
 
-        padding: 25px 18px;
+@media (max-width: 700px) {
+    .editor-navbar {
+        padding: 0 15px;
+    }
 
+    .editor-title {
+        display: none;
+    }
+
+    .editor-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .editor-content {
+        width: 100%;
+        padding: 20px 16px;
+    }
+
+    .section-heading h1 {
+        font-size: 24px;
+    }
+
+    .form-card {
+        padding: 18px;
     }
 
     .form-grid {
-
         grid-template-columns: 1fr;
-
     }
 
+    .skill-input {
+        flex-direction: column;
+    }
+
+    .skill-input button {
+        width: 100%;
+        padding: 12px;
+    }
 }
 
 /* ================= CERTIFICATE ================= */
