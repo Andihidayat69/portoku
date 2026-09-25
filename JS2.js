@@ -952,154 +952,151 @@ function loadCertificateImage() {
     }
 }
 
+
+///dadadadad/////////////////////
+
+
 function addCertificate() {
 
-    const name =
-        document.getElementById("certificateName")?.value.trim();
+    const name = document.getElementById("certificateName").value.trim();
+    const issuer = document.getElementById("certificateIssuer").value.trim();
+    const year = document.getElementById("certificateYear").value.trim();
+    const link = document.getElementById("certificateLink").value.trim();
 
-    const issuer =
-        document.getElementById("certificateIssuer")?.value.trim();
+    const imageInput = document.getElementById("certificateImageInput");
+    const file = imageInput.files[0];
 
-    const year =
-        document.getElementById("certificateYear")?.value.trim();
-
-    const link =
-        document.getElementById("certificateLink")?.value.trim();
-
-
-    if (!name) {
+    if (name === "") {
         alert("Nama sertifikat wajib diisi.");
         return;
     }
 
-    if (!issuer) {
+    if (issuer === "") {
         alert("Penerbit / Lembaga wajib diisi.");
         return;
     }
 
-
-    const list =
-        document.getElementById("certificateList");
-
-    if (!list) return;
-
-
-    const item =
-        document.createElement("div");
-
-    item.className = "certificate-item";
-
-
-    // Simpan data di element
-    item.dataset.name = name;
-    item.dataset.issuer = issuer;
-    item.dataset.year = year;
-    item.dataset.link = link;
-
-
-    const info =
-        document.createElement("div");
-
-    info.className =
-        "certificate-item-info";
-
-
-    const title =
-        document.createElement("strong");
-
-    title.textContent = name;
-
-
-    const detail =
-        document.createElement("span");
-
-    detail.textContent =
-        issuer + (year ? " · " + year : "");
-
-
-    info.appendChild(title);
-    info.appendChild(detail);
-
-
-    item.appendChild(info);
-
-
-    // Tombol lihat sertifikat
-
-    if (link) {
-
-        const linkElement =
-            document.createElement("a");
-
-        linkElement.href = link;
-
-        linkElement.target = "_blank";
-
-        linkElement.rel = "noopener noreferrer";
-
-        linkElement.className =
-            "certificate-link";
-
-        linkElement.textContent =
-            "Lihat";
-
-        item.appendChild(linkElement);
-
+    if (!file) {
+        alert("Silakan upload gambar sertifikat.");
+        return;
     }
 
+    if (!file.type.startsWith("image/")) {
+        alert("File harus berupa gambar.");
+        return;
+    }
 
-    // Tombol hapus
+    const reader = new FileReader();
 
-    const deleteButton =
-        document.createElement("button");
+    reader.onload = function (e) {
 
-    deleteButton.type = "button";
+        const imageUrl = e.target.result;
 
-    deleteButton.className =
-        "delete-certificate";
+        const list = document.getElementById("certificateList");
 
-    deleteButton.textContent = "×";
+        const item = document.createElement("div");
+        item.className = "certificate-item";
 
+        // Simpan data sertifikat
+        item.dataset.name = name;
+        item.dataset.issuer = issuer;
+        item.dataset.year = year;
+        item.dataset.link = link;
+        item.dataset.image = imageUrl;
 
-    deleteButton.onclick = function () {
+        // =========================
+        // GAMBAR
+        // =========================
 
-        item.remove();
+        const image = document.createElement("img");
 
-        saveCertificates();
+        image.className = "certificate-preview-image";
+        image.src = imageUrl;
+        image.alt = name;
 
-        updateCertificatePreview();
+        // =========================
+        // INFORMASI
+        // =========================
 
+        const info = document.createElement("div");
+        info.className = "certificate-item-info";
+
+        const title = document.createElement("strong");
+        title.textContent = name;
+
+        const detail = document.createElement("span");
+        detail.textContent =
+            issuer + (year ? " · " + year : "");
+
+        info.appendChild(title);
+        info.appendChild(detail);
+
+        // =========================
+        // LINK
+        // =========================
+
+        if (link !== "") {
+
+            const linkElement = document.createElement("a");
+
+            linkElement.href = link;
+            linkElement.target = "_blank";
+            linkElement.rel = "noopener noreferrer";
+
+            linkElement.className = "certificate-link";
+
+            linkElement.textContent = "Lihat";
+
+            info.appendChild(linkElement);
+        }
+
+        // =========================
+        // DELETE
+        // =========================
+
+        const deleteButton = document.createElement("button");
+
+        deleteButton.type = "button";
+        deleteButton.className = "delete-certificate";
+        deleteButton.textContent = "×";
+
+        deleteButton.onclick = function () {
+            item.remove();
+            updatePreviewCertificates();
+        };
+
+        // =========================
+        // MASUKKAN KE CARD
+        // =========================
+
+        item.appendChild(image);
+        item.appendChild(info);
+        item.appendChild(deleteButton);
+
+        list.appendChild(item);
+
+        // =========================
+        // UPDATE PREVIEW
+        // =========================
+
+        updatePreviewCertificates();
+
+        // =========================
+        // RESET INPUT
+        // =========================
+
+        document.getElementById("certificateName").value = "";
+        document.getElementById("certificateIssuer").value = "";
+        document.getElementById("certificateYear").value = "";
+        document.getElementById("certificateLink").value = "";
+
+        imageInput.value = "";
+
+        document.getElementById("certificateFileName").textContent =
+            "Belum ada file";
     };
 
-
-    item.appendChild(deleteButton);
-
-
-    list.appendChild(item);
-
-
-    // Bersihkan form
-
-    document.getElementById(
-        "certificateName"
-    ).value = "";
-
-    document.getElementById(
-        "certificateIssuer"
-    ).value = "";
-
-    document.getElementById(
-        "certificateYear"
-    ).value = "";
-
-    document.getElementById(
-        "certificateLink"
-    ).value = "";
-
-
-    saveCertificates();
-
-    updateCertificatePreview();
+    reader.readAsDataURL(file);
 }
 
 /* =====================================================
@@ -1539,4 +1536,132 @@ function applyPortfolioTemplate() {
         "template-" + template
     );
 
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const input = document.getElementById("certificateImageInput");
+    const fileName = document.getElementById("certificateFileName");
+
+    if (input) {
+
+        input.addEventListener("change", function () {
+
+            if (this.files.length > 0) {
+
+                fileName.textContent =
+                    this.files[0].name;
+
+            } else {
+
+                fileName.textContent =
+                    "Belum ada file";
+
+            }
+
+        });
+
+    }
+
+});
+
+
+function updatePreviewCertificates() {
+
+    const container =
+        document.getElementById("previewCertificates");
+
+    const list =
+        document.getElementById("certificateList");
+
+    if (!container || !list) return;
+
+    container.innerHTML = "";
+
+    const certificates =
+        list.querySelectorAll(".certificate-item");
+
+    if (certificates.length === 0) {
+
+        container.innerHTML = `
+            <p class="empty-content">
+                Belum ada sertifikat.
+            </p>
+        `;
+
+        return;
+    }
+
+    certificates.forEach(function (item) {
+
+        const image =
+            item.dataset.image;
+
+        const name =
+            item.dataset.name;
+
+        const issuer =
+            item.dataset.issuer;
+
+        const year =
+            item.dataset.year;
+
+        const link =
+            item.dataset.link;
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "preview-certificate-card";
+
+        // GAMBAR
+        const img =
+            document.createElement("img");
+
+        img.src = image;
+        img.alt = name;
+
+        // INFO
+        const info =
+            document.createElement("div");
+
+        info.className =
+            "preview-certificate-info";
+
+        const title =
+            document.createElement("strong");
+
+        title.textContent = name;
+
+        const detail =
+            document.createElement("span");
+
+        detail.textContent =
+            issuer + (year ? " · " + year : "");
+
+        info.appendChild(title);
+        info.appendChild(detail);
+
+        // LINK
+        if (link) {
+
+            const linkElement =
+                document.createElement("a");
+
+            linkElement.href = link;
+            linkElement.target = "_blank";
+
+            linkElement.textContent =
+                "Lihat Sertifikat →";
+
+            info.appendChild(linkElement);
+        }
+
+        card.appendChild(img);
+        card.appendChild(info);
+
+        container.appendChild(card);
+    });
 }

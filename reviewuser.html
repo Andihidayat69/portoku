@@ -87,6 +87,11 @@
                 Skill
             </button>
 
+            <button class="menu-item" onclick="showSection('certificate', this)">
+                <span>🏆</span>
+                Sertifikat
+            </button>
+
             <button class="menu-item" onclick="showSection('contact', this)">
                 <span>🔗</span>
                 Kontak
@@ -130,25 +135,35 @@
 
             <div class="form-card">
                 <div class="photo-area">
-                    <div class="profile-photo" id="profilePhotoPreview">
-                        AH
-                    </div>
-                    <div>
-                        <h4>Foto Profil</h4>
-                        <p>Gunakan foto profesional.</p>
-                       <input
-                            type="file"
-                            id="profilePhotoInput"
-                            accept="image/*"
-                            hidden
-                        >
-                        <button
-                            class="upload-btn"
-                            type="button"
-                            onclick="document.getElementById('profilePhotoInput').click()"
-                        >
-                            Upload Foto
-                        </button>
+                    <div class="photo-area">
+
+    <div
+        class="profile-photo"
+        id="profilePhotoPreview"
+    >
+        AH
+    </div>
+
+
+    <div>
+        <h4>Foto Profil</h4>
+        <p>Gunakan foto profesional.</p>
+
+        <input
+            type="file"
+            id="profilePhotoInput"
+            accept="image/*"
+            hidden>
+
+        <button
+            type="button"
+            class="upload-btn"
+            onclick="document.getElementById('profilePhotoInput').click()">
+            Upload Foto
+        </button>
+    </div>
+
+</div>
                     </div>
                 </div>
 
@@ -224,56 +239,48 @@
             </div>
 
 
-            <div class="form-card">
+            <div class="form-group">
+                <label>Institusi</label>
+                <input
+                    type="text"
+                    id="educationInstitution"
+                    placeholder="Universitas / Sekolah"
+                    oninput="updateEducationPreview()"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Jurusan</label>
+                <input
+                    type="text"
+                    id="educationMajor"
+                    placeholder="Contoh: Sistem Informasi"
+                    oninput="updateEducationPreview()">
+            </div>
+
+
+            <div class="form-grid">
                 <div class="form-group">
-                    <label>Institusi</label>
+                    <label>Tahun Masuk</label>
                     <input
-                        type="text"
-                        id="educationInstitution"
-                         placeholder="Universitas / Sekolah"
-                         oninput="updateEducationPreview()"
-                    >
-                </div>
-
-                <div class="form-group">
-
-                    <label>Jurusan</label>
-
-                    <input
-                        type="text"
-                        id="educationMajor"
-                        placeholder="Contoh: Sistem Informasi"
-                        oninput="updateEducationPreview()"
-                    >
-
-                </div>
-
-                <div class="form-grid">
-
-                    <div class="form-group">
-
-                        <label>Tahun Masuk</label>
-
-                         <input
                         type="text"
                         id="educationStart"
                         placeholder="2021"
-                        oninput="updateEducationPreview()"
-                    >
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Tahun Lulus</label>
-                        <input
-                            type="text"
-                            id="educationEnd"
-                            placeholder="2025"
-                            oninput="updateEducationPreview()"
-                        >
-                    </div>
-
+                        oninput="updateEducationPreview()">
                 </div>
+
+
+                <div class="form-group">
+                    <label>Tahun Lulus</label>
+                    <input
+                        type="text"
+                        id="educationEnd"
+                        placeholder="2025"
+                        oninput="updateEducationPreview()">
+                </div>
+
+            </div>
 
                 <button class="save-btn">
                     + Tambah Pendidikan
@@ -302,110 +309,103 @@
             </div>
 
 
-            <div class="form-card">
+        <div class="form-card">
 
         <div class="form-group">
 
-            <label>Posisi / Jabatan</label>
+                <label>Posisi</label>
 
-            <input
-                type="text"
-                id="experiencePosition"
-                placeholder="Contoh: Staff Humas"
-            >
-
-        </div>
-
-        <div class="form-group">
-
-            <label>Perusahaan / Organisasi</label>
-
-            <input
-                type="text"
-                id="experienceCompany"
-                placeholder="Contoh: PT PLN (Persero)">
-        </div>
-
-        <div class="form-group">
-
-            <label>Deskripsi Pengalaman</label>
-            <textarea
-                id="experienceDescription"
-                rows="6"
-                placeholder="Ceritakan tanggung jawab dan pengalaman kamu..."
-            ></textarea>
-        </div>
-
-                <button class="save-btn">
-                    + Tambah Pengalaman
-                </button>
+                <input
+                    type="text"
+                    id="experiencePosition"
+                    placeholder="Contoh: Marketing Intern"
+                >
 
             </div>
 
+
+            <div class="form-group">
+                <label>Perusahaan / Organisasi</label>
+                <input
+                    type="text"
+                    id="experienceCompany"
+                    placeholder="Nama perusahaan" >
+            </div>
+
+
+            <div class="form-group">
+                <label>Deskripsi</label>
+                <textarea
+                    id="experienceDescription"
+                    rows="5"
+                    placeholder="Jelaskan pekerjaan atau pencapaianmu..."></textarea>
+            </div>
+
+            <button
+                type="button"
+                class="save-btn"
+                onclick="saveData()">
+                Simpan Pengalaman
+            </button>
+            </div>
         </div>
 
 
 
         <!-- PROJECT -->
-
         <div class="form-section" id="project">
-
             <div class="section-heading">
-
                 <span class="section-label">
                     LANGKAH 04
                 </span>
-
                 <h1>Project</h1>
-
-                <p>
-                    Tampilkan project terbaikmu kepada HRD.
-                </p>
-
+                <p>project terbaikmu kepada HRD.</p>
             </div>
 
 
             <div class="form-card">
+               <div class="form-group">
+                <label>Nama Project</label>
+                <input
+                    type="text"
+                    id="projectName"
+                    placeholder="Contoh: Sistem Informasi Akademik"
+                    oninput="updateProjectPreview()">
+            </div>
 
-                <div class="form-group">
 
-                    <label>Nama Project</label>
-                    <input
-                        type="text"
-                        id="projectName"
-                        placeholder="Contoh: Sistem Informasi Akademik"
-                        oninput="updateProjectPreview()">
-                </div>
-
-                <div class="form-group">
-
-                    <label>Tools / Teknologi</label>
-                  <input
+            <div class="form-group">
+                <label>Tools / Teknologi</label>
+                <input
                     type="text"
                     id="projectTools"
                     placeholder="Contoh: Figma, Excel, Canva"
                     oninput="updateProjectPreview()">
-                </div>
+            </div>
 
-                <div class="form-group">
-                    <label>Deskripsi Project</label>
-                    <textarea
-                        id="projectDescription"
-                        rows="5"
-                        placeholder="Ceritakan project kamu..."
-                        oninput="updateProjectPreview()"
-                    ></textarea>
-                </div>
 
-                <button class="save-btn">
-                    + Tambah Project
-                </button>
+            <div class="form-group">
+                <label>Deskripsi Project</label>
+                <textarea
+                    id="projectDescription"
+                    rows="5"
+                    placeholder="Ceritakan project kamu..."
+                ></textarea>
+            </div>
+
+
+            <button
+                type="button"
+                class="save-btn"
+                onclick="saveData()">
+                Simpan Project
+            </button>
+
             </div>
         </div>
 
      <!--------------------------- SKILL ------------------>
         <div class="form-section" id="skill">
-
             <div class="section-heading">
                 <span class="section-label">LANGKAH 05</span>
                 <h1>Skill</h1>
@@ -414,96 +414,48 @@
 
 
             <div class="form-card">
-
                 <div class="skill-input">
                     <input
                         type="text"
                         placeholder="Contoh: Microsoft Excel"
                         id="skillInput">
-
                     <button onclick="addSkill()">
                         Tambah
                     </button>
-
-                    <button class="menu-item" onclick="showSection('certificate', this)">
-                        <span>🏆</span>
-                         Sertifikat
-                    </button>
-
                 </div>
 
                 <div class="skill-list" id="skillList">
-
                     <span>Microsoft Excel</span>
                     <span>Google Sheets</span>
                     <span>Canva</span>
-
                 </div>
 
             </div>
 
         </div>
+<
 <!-- ================= CERTIFICATE ================= -->
 
-<div class="form-section" id="certificate">
-    <!-- CERTIFICATE -->
+<div
+    class="form-section"
+    id="certificate"
+>
 
-<div class="form-section" id="certificate">
     <div class="section-heading">
-        <span class="section-label">LANGKAH 06</span>
+
+        <span class="section-label">
+            LANGKAH 06
+        </span>
+
         <h1>Sertifikat</h1>
-        <p>Tambahkan sertifikat, kursus, atau pelatihan yang pernah kamu ikuti.</p>
+
+        <p>
+            Tambahkan sertifikat, kursus,
+            atau pelatihan yang pernah kamu ikuti.
+        </p>
+
     </div>
 
-    <div class="form-card">
-        <div class="form-group">
-            <label>Nama Sertifikat</label>
-            <input
-                type="text"
-                id="certificateName"
-                placeholder="Contoh: Work Smarter With Microsoft Excel">
-
-        </div>
-
-        <div class="form-grid">
-            <div class="form-group">
-                <label>Penerbit / Lembaga</label>
-                <input
-                    type="text"
-                    id="certificateIssuer"
-                    placeholder="Contoh: Coursera">
-            </div>
-
-            <div class="form-group">
-                <label>Tahun</label>
-                <input
-                    type="text"
-                    id="certificateYear"
-                    placeholder="2026">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Link Sertifikat</label>
-            <input
-                type="text"
-                id="certificateLink"
-                placeholder="https://...">
-
-        </div>
-
-        <button
-            type="button"
-            class="save-btn"
-            onclick="addCertificate()" >
-            + Tambah Sertifikat
-        </button>
-        <div
-            class="certificate-list" id="certificateList" >
-        </div>
-    </div>
-
-</div>
             <!--upload sertikita-->
         <div class="form-card">
         <div class="certificate-upload">
@@ -576,32 +528,11 @@
             + Tambah Sertifikat
         </button>
 
-
-        <!-- LIST SERTIFIKAT -->
-        <div
-            class="certificate-list" id="certificateList">
-            <div class="certificate-item">
-                <div class="certificate-preview-image">
-                    🏆
-                </div>
-        
-                <div class="certificate-item-info">
-                    <strong>Work Smarter With Microsoft Excel</strong>
-                    <span>Microsoft · 2026</span>
-                </div>
-
-                <button
-                    class="delete-certificate"
-                    onclick="this.parentElement.remove()">
-                    ×
-                </button>
-            </div>
-        </div>
+        <div class="certificate-list" id="certificateList"></div>
+    
     </div>
     </div>
                 
-
-        <!-- CONTACT -->
 
         <!-- ================= CONTACT ================= -->
 
@@ -622,45 +553,39 @@
     <div class="form-card">
 
         <div class="form-group">
-
-            <label>Email</label>
-
-            <input
-                type="email"
-                id="contactEmail"
-                placeholder="nama@email.com"
-            >
-
-        </div>
-
-        <div class="form-group">
-
-            <label>LinkedIn</label>
-
-            <input
-                type="text"
-                id="contactLinkedIn"
-                placeholder="https://linkedin.com/in/username"
-            >
-
-        </div>
-
-        <div class="form-group">
-
-            <label>WhatsApp</label>
-
-            <input
-                type="text"
-                id="contactWhatsApp"
-                placeholder="08xxxxxxxxxx"
-            >
-
-        </div>
+                <label>Email</label>
+                <input
+                    type="email"
+                    id="contactEmail"
+                    placeholder="nama@email.com">
+            </div>
 
 
-                <button class="save-btn">
-                    Simpan Kontak
-                </button>
+            <div class="form-group">
+                <label>LinkedIn</label>
+                <input
+                    type="text"
+                    id="contactLinkedIn"
+                    placeholder="https://linkedin.com/in/username">
+            </div>
+
+
+            <div class="form-group">
+                <label>WhatsApp</label>
+                <input
+                    type="text"
+                    id="contactWhatsApp"
+                    placeholder="08xxxxxxxxxx">
+            </div>
+
+
+            <button
+                type="button"
+                class="save-btn"
+                onclick="saveData()">
+                Simpan Kontak
+            </button>
+
             </div>
         </div>
     </section>
@@ -766,9 +691,6 @@
             <div
                 class="preview-certificates"
                 id="previewCertificates">
-                <p class="empty-content">
-                    Belum ada sertifikat.
-                </p>
             </div>
         </div>
         

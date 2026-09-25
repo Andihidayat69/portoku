@@ -9,39 +9,27 @@ function loadPortfolio() {
 
     const saved =
         localStorage.getItem("portfolioData");
-
     if (!saved) return;
-
     const data =
         JSON.parse(saved);
 
 
     // PROFILE
-
     const name =
         document.getElementById("portfolioName");
-
     const headline =
         document.getElementById("portfolioHeadline");
-
     const about =
         document.getElementById("portfolioAbout");
-
-
     if (name) {
-
         name.textContent =
             data.name || "Nama Kamu";
-
     }
-
-
     if (headline) {
 
         headline.textContent =
             data.headline ||
             "Information System Graduate";
-
     }
 
 
@@ -203,7 +191,7 @@ function loadPortfolio() {
                 "Tools / Teknologi";
 
         }
-
+ 
 
         if (projectDescription) {
 
@@ -342,7 +330,6 @@ function loadPortfolio() {
         }
 
     }
-
 
     // =========================
     // SKILLS
@@ -678,19 +665,21 @@ function sharePortfolio() {
 document.addEventListener(
     "DOMContentLoaded",
     function() {
-
         loadPortfolio();
-
+        loadPortfolioStats(data);
+        loadPortfolioSkills(data);
+        loadPortfolioCertificates(data);
+        loadPortfolioContact(data);
+        loadPortfolioStats(data);
+        loadPortfolioPhoto();
     }
 );
 
 function loadPortfolioCertificates(data) {
-
     const container =
         document.getElementById(
             "portfolioCertificates"
         );
-
     if (!container) return;
 
 
@@ -700,12 +689,9 @@ function loadPortfolioCertificates(data) {
     const certificates =
         data.certificates || [];
 
-
     if (certificates.length === 0) {
-
         container.innerHTML =
             '<p class="empty-content">Belum ada sertifikat.</p>';
-
         return;
 
     }
@@ -773,4 +759,205 @@ function loadPortfolioCertificates(data) {
 
 }
 
+function loadPortfolioStats(data) {
+
+    const experience =
+        document.getElementById("statExperience");
+
+    const projects =
+        document.getElementById("statProjects");
+
+    const certificates =
+        document.getElementById("statCertificates");
+
+
+    if (experience) {
+
+        experience.textContent =
+            data.experience &&
+            data.experience.company
+                ? "1"
+                : "0";
+
+    }
+
+
+    if (projects) {
+
+        projects.textContent =
+            data.project &&
+            data.project.name
+                ? "1"
+                : "0";
+
+    }
+
+
+    if (certificates) {
+
+        certificates.textContent =
+            data.certificates
+                ? data.certificates.length
+                : "0";
+
+    }
+
+}
+
+function loadPortfolioCertificates(data) {
+
+    const container =
+        document.getElementById(
+            "portfolioCertificates"
+        );
+
+    if (!container) return;
+
+
+    container.innerHTML = "";
+
+
+    const certificates =
+        data.certificates || [];
+
+
+    if (certificates.length === 0) {
+
+        container.innerHTML = `
+            <div class="portfolio-certificate">
+                <h3>Belum ada sertifikat</h3>
+                <p>
+                    Sertifikat akan tampil
+                    setelah kamu menambahkannya
+                    melalui editor.
+                </p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    certificates.forEach(function(certificate) {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "portfolio-certificate";
+
+
+        const title =
+            document.createElement("h3");
+
+        title.textContent =
+            certificate.name ||
+            "Sertifikat";
+
+
+        const issuer =
+            document.createElement("p");
+
+        issuer.textContent =
+            certificate.issuer +
+            (
+                certificate.year
+                    ? " · " + certificate.year
+                    : ""
+            );
+
+
+        card.appendChild(title);
+
+        card.appendChild(issuer);
+
+
+        if (certificate.link) {
+
+            const link =
+                document.createElement("a");
+
+            link.href =
+                certificate.link;
+
+            link.target =
+                "_blank";
+
+            link.textContent =
+                "View Certificate →";
+
+
+            card.appendChild(link);
+
+        }
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+function loadPortfolioContact(data) {
+
+    if (!data.contact) return;
+
+
+    const email =
+        document.getElementById(
+            "portfolioContactEmail"
+        );
+
+    const linkedin =
+        document.getElementById(
+            "portfolioContactLinkedIn"
+        );
+
+    const whatsapp =
+        document.getElementById(
+            "portfolioContactWhatsApp"
+        );
+
+
+    if (email && data.contact.email) {
+
+        email.href =
+            "mailto:" +
+            data.contact.email;
+
+    }
+
+
+    if (linkedin && data.contact.linkedin) {
+
+        linkedin.href =
+            data.contact.linkedin;
+
+    }
+
+
+    if (whatsapp && data.contact.whatsapp) {
+
+        let number =
+            data.contact.whatsapp
+                .replace(/\D/g, "");
+
+
+        if (number.startsWith("0")) {
+
+            number =
+                "62" +
+                number.substring(1);
+
+        }
+
+
+        whatsapp.href =
+            "https://wa.me/" +
+            number;
+
+    }
+
+}
 
